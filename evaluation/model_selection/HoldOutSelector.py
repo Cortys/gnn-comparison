@@ -68,6 +68,8 @@ class HoldOutSelector:
             if not os.path.exists(exp_config_name):
                 os.makedirs(exp_config_name)
 
+            config_id += 1
+
             json_config = os.path.join(exp_config_name, self._CONFIG_FILENAME)
             if not os.path.exists(json_config):
                 if not debug:
@@ -80,8 +82,6 @@ class HoldOutSelector:
                 # Do not recompute experiments for this fold.
                 print(f"Config {json_config} already present! Shutting down to prevent loss of previous experiments")
                 continue
-
-            config_id += 1
 
         pool.shutdown()  # wait the batch of configs to terminate
 
