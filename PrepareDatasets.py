@@ -12,7 +12,9 @@ DATASETS = {
     'NCI1': NCI1,
     'ENZYMES': Enzymes,
     'PROTEINS': Proteins,
-    'DD': DD
+    'DD': DD,
+    'noisy_triangle_classification_dataset': noisy_triangle_classification_dataset,
+    'threesix_dataset': threesix_dataset
 }
 
 

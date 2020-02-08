@@ -36,6 +36,8 @@ class Config:
         'PROTEINS': Proteins,
         'ENZYMES': Enzymes,
         'DD': DD,
+        'noisy_triangle_classification_dataset': noisy_triangle_classification_dataset,
+        'threesix_dataset': threesix_dataset
     }
 
     models = {

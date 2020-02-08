@@ -346,6 +346,13 @@ class TUDatasetManager(GraphDatasetManager):
     def _precompute_assignments(self):
         pass
 
+class SynDatasetManager(TUDatasetManager):
+  def __init__(self, *args, DATA_DIR="SYN_DATA", **kwargs):
+    super().__init__(*args, DATA_DIR=DATA_DIR, **kwargs)
+
+  def _download(self):
+    raise Exception(f"Raw synthetic dataset {self.name} not found on disk.")
+
 
 class NCI1(TUDatasetManager):
     name = "NCI1"
@@ -408,3 +415,13 @@ class Collab(TUDatasetManager):
     _dim_features = 1
     _dim_target = 3
     max_num_nodes = 492
+
+class noisy_triangle_classification_dataset(SynDatasetManager):
+  name = "noisy_triangle_classification_dataset"
+  _dim_features = 3
+  _dim_target = 2
+
+class threesix_dataset(SynDatasetManager):
+  name = "threesix_dataset"
+  _dim_features = 2
+  _dim_target = 2
