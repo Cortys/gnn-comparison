@@ -1,7 +1,7 @@
 model:
   - DiffPool
 device:
-  - cpu
+  - cuda
 batch_size:
   - 8
 learning_rate:
@@ -44,5 +44,3 @@ dim_embedding:
   - 128
 dim_embedding_MLP:
   - 50
-
-

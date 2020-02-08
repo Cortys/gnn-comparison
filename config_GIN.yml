@@ -1,7 +1,7 @@
 model:
   - GIN
 device:
-  - cpu
+  - cuda
 batch_size:
   - 32
   - 128

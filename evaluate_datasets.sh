@@ -4,10 +4,15 @@ cd "${BASH_SOURCE%/*}" || exit
 
 # All datasets and configs:
 datasets="NCI1 PROTEINS DD REDDIT-BINARY IMDB-BINARY"
-configs=$(ls ./config_*.yml)
+# configs=$(ls ./config_*.yml)
+configs="baseline config_GIN.yml"
 
 if [ ! -z "$1" ]; then
-	configs="config_$1.yml"
+	if [[ "$1" == "baseline" ]]; then
+		configs="baseline"
+	else
+		configs="config_$1.yml"
+	fi
 fi
 
 if [ ! -z "$2" ]; then
@@ -15,9 +20,24 @@ if [ ! -z "$2" ]; then
 fi
 
 function launchExp() {
-	echo "Starting experiment with config $1 and dataset $2..."
-	python Launch_Experiments.py --config-file $1 --dataset-name $2 --debug
-	echo "Completed experiment with config $1 and dataset $2."
+	local config=$1;
+	local ds=$2
+
+	if [ "$config" == "baseline" ]; then
+		if [ "$ds" == REDDIT* ]; then
+			config="config_BaselineSocial.yml"
+		elif [ "$ds" == IMDB* ]; then
+			config="config_BaselineIMDB.yml"
+		elif [ "$ds" == "ENZYMES" ]; then
+			config="config_BaselineENZYMES.yml"
+		else
+			config="config_BaselineChemical.yml"
+		fi
+	fi
+
+	echo "Starting experiment with config $config and dataset $ds..."
+	python Launch_Experiments.py --config-file $config --dataset-name $ds --debug
+	echo "Completed experiment with config $config and dataset $ds."
 }
 
 echo "Launched evalutation."
