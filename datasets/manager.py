@@ -421,6 +421,11 @@ class noisy_triangle_classification_dataset(SynDatasetManager):
   _dim_features = 3
   _dim_target = 2
 
+class balanced_triangle_classification_dataset(SynDatasetManager):
+  name = "balanced_triangle_classification_dataset"
+  _dim_features = 3
+  _dim_target = 2
+
 class threesix_dataset(SynDatasetManager):
   name = "threesix_dataset"
   _dim_features = 2
