@@ -37,6 +37,7 @@ class Config:
         'ENZYMES': Enzymes,
         'DD': DD,
         'noisy_triangle_classification_dataset': noisy_triangle_classification_dataset,
+        'balanced_triangle_classification_dataset': balanced_triangle_classification_dataset,
         'threesix_dataset': threesix_dataset
     }
 
