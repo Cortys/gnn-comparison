@@ -30,6 +30,8 @@ function launchExp() {
 			config="config_BaselineIMDB.yml"
 		elif [ "$ds" == "ENZYMES" ]; then
 			config="config_BaselineENZYMES.yml"
+		elif [ "$ds" == "balanced_triangle_classification_dataset" ]; then
+			config="config_BaselineSynthetic.yml"
 		else
 			config="config_BaselineChemical.yml"
 		fi
