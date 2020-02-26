@@ -3,7 +3,7 @@
 cd "${BASH_SOURCE%/*}" || exit
 
 # All datasets and configs:
-datasets="balanced_triangle_classification_dataset NCI1 PROTEINS DD REDDIT-BINARY IMDB-BINARY"
+datasets="balanced_triangle_classification_dataset NCI1 PROTEINS DD"
 # configs=$(ls ./config_*.yml)
 configs="baseline config_GIN.yml"
 
